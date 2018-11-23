@@ -5,7 +5,7 @@ There's a few blog posts about setting up macOS for R, _e.g._,
 ["Installing R on OS X – `100% Homebrew Edition'" - Bob Rudis](https://rud.is/b/2015/10/22/installing-r-on-os-x-100-homebrew-edition/);
 ["Setup OSX for R" - Bhaskar Karambelkar](https://dev.to/bhaskar_vk/setup-osx-for-r)
 and ["Install R 100% Homebrew Edition With OpenBlas & OpenMP – My Version" -
-Luis Puerto](http://luisspuerto.net/2018/01/install-r-100-homebrew-edition-with-openblas-openmp-my-version/).
+Luis Puerto](https://luispuerto.net/blog/2018/01/12/install-r-100-homebrew-edition-with-openblas-openmp-my-version/).
 This repository is mainly for me to do this quickly when I need to. I've used
 a combination of these to get my R installed and running on macOS but as fast
 as Homebrew changes the instructions change and there are always gotchas.
