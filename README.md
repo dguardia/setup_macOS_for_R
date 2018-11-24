@@ -347,9 +347,13 @@ CPPFLAGS=-I/usr/local/opt/gettext/include -I/usr/local/opt/llvm/include
 ' >> ~/.R/Makevars
 ```
 
-# Updating installed packages
+# Special Instructions for Mojave
 
-To update the packages in the local library, this command in R will reinstall
+Check Bob Rudis' blog for one more step. Here Bob outlines how to deal with Apple's sandboxed apps. I'm just going to link to it and let you read more on Bob's site, "Escaping the macOS 10.14 (Mojave) Filesystem Sandbox with R / RStudio" <https://rud.is/b/2018/11/09/escaping-the-macos-10-14-mojave-sandbox-with-r-rstudio/>.
+
+# Updating installed packages after a major R upgrade
+
+Now that it's all installed, to update the packages in the local library, this command in R will reinstall
 all of them after an update to the R installation, _e.g._ 3.4.4 to 3.5.0.
 
 ```R
