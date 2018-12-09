@@ -45,7 +45,7 @@ this in the Terminal application. It will download and install Homebrew.
 brew analytics off # if you wish not to participate
 ```
 
-### Install (an updated) Bash and (an updated) nano
+### Install (an updated) Bash, curl and a nicer terminal
 
 macOS comes with Bash and curl, but they're rather outdated. Homebrew can
 remedy this for you. iterm2 is just a nicer terminal to work in than the stock
@@ -62,7 +62,7 @@ sudo sh -c 'echo "/usr/local/bin/bash" >> /etc/shells'
 chsh -s /usr/local/bin/bash
 
 # Install an updated version of curl
-brew install curl
+brew install curl --with-openssl
 
 # Get a better terminal
 brew cask install iterm2
