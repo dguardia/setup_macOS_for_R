@@ -67,6 +67,16 @@ brew install curl --with-openssl
 # Get a better terminal
 brew cask install iterm2
 
+# Install a useful Bash prompt (see https://github.com/magicmonty/bash-git-prompt)
+brew install bash-git-prompt
+
+echo '
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  GIT_PROMPT_ONLY_IN_REPO=1
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+' >>  ~/.bash_profile
 ```
 
 At this point, you can stop, close Terminal and launch iTerm2 and start using it instead.
