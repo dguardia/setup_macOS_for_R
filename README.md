@@ -375,6 +375,58 @@ pkgs <- as.data.frame(installed.packages(lib),
 install.packages(pkgs, type = "source")
 ```
 
+This, of course, will re-install `data.table` using the wrong flags. So the simplest solution I've found is to reinstall everything as above. Then repeat the steps above for creating the .R/Makevars file as follows.
+
+```bash
+rm ~/.R/Makevars
+
+echo '
+LLVM_LOC = /usr/local/opt/llvm
+CC=$(LLVM_LOC)/bin/clang -fopenmp
+CXX=$(LLVM_LOC)/bin/clang++ -fopenmp
+CFLAGS=-g -O3 -Wall -pedantic -std=gnu99 -mtune=native -pipe
+CXXFLAGS=-g -O3 -Wall -pedantic -std=c++11 -mtune=native -pipe
+LDFLAGS=-L/usr/local/opt/gettext/lib -L$(LLVM_LOC)/lib -Wl,-rpath,$(LLVM_LOC)/lib
+CPPFLAGS=-I/usr/local/opt/gettext/include -I$(LLVM_LOC)/include
+' >> ~/.R/Makevars
+```
+
+Install `data.table` just using the terminal. This will launch an R session,
+install `data.table` and then exit back to Bash.
+
+```bash
+R --vanilla << EOF
+install.packages('data.table', repos = 'https://cloud.r-project.org/')
+q()
+EOF
+```
+
+### Set Final Makevars for R
+
+The preceeding Makevars will cause issues when installing some other R packages,
+see
+[the notes here](https://github.com/Rdatatable/data.table/wiki/Installation#openmp-enabled-compiler-for-mac)
+regarding `stringi` in particular.
+
+First delete the Makevars file.
+
+```bash
+rm ~/.R/Makevars
+```
+
+Then write the new, general-purpose Makevars file.
+
+```bash
+echo '
+CC=/usr/local/opt/llvm/bin/clang
+CXX=/usr/local/opt/llvm/bin/clang++
+CFLAGS=-g -O3 -Wall -pedantic -std=gnu99 -mtune=native -pipe
+CXXFLAGS=-g -O3 -Wall -pedantic -std=c++11 -mtune=native -pipe
+LDFLAGS=-L/usr/local/opt/gettext/lib -L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib
+CPPFLAGS=-I/usr/local/opt/gettext/include -I/usr/local/opt/llvm/include
+' >> ~/.R/Makevars
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of
