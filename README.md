@@ -434,7 +434,7 @@ conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
-* **Adam H Sparks** - <https://adam.hsparks.github.io/>
+* **Adam H Sparks** - <https://adamhsparks.netlify.com/>
 
 ## Licence
 
