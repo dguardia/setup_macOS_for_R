@@ -408,15 +408,11 @@ see
 [the notes here](https://github.com/Rdatatable/data.table/wiki/Installation#openmp-enabled-compiler-for-mac)
 regarding `stringi` in particular.
 
-First delete the Makevars file.
+First delete the Makevars file, then write the new, general-purpose Makevars file.
 
 ```bash
 rm ~/.R/Makevars
-```
 
-Then write the new, general-purpose Makevars file.
-
-```bash
 echo '
 CC=/usr/local/opt/llvm/bin/clang
 CXX=/usr/local/opt/llvm/bin/clang++
